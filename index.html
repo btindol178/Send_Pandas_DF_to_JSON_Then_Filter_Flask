@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // get data
+    var res = {{ res | safe}}
+
+    console.log("Unfiltered object",res)
+    console.log("Unfiltered object",res[0])
+
+
+    // print filtered value 
+    console.log("filtered object",res.filter(function(item){
+    return item.months == "Jan";   
+}));
+
+    // assign filtered value to variable
+    var newz = res.filter(function(item){return item.months == "Jan"});
+    console.log("Filtered object!!" , newz)
+   
+    
+
+// loop through data object and grab sales month and orders object and then put into h1 node
+    for(var i=0;i < newz.length;i++){
+        console.log(newz[i])
+        months = newz[i].months
+        sales = newz[i].sales
+        orders = newz[i].orders
+        var text = `months: ${months}, sales: ${sales},orders: ${orders}`
+        var h = document.createElement("H1"); // Create the H1 element 
+        var t = document.createTextNode(text); // Create a text element 
+        h.appendChild(t); // Append the text node to the H1 element 
+        document.body.appendChild(h);
+    }
+
+// // before filter 
+//     for(var i=0;i < res.length;i++){
+//         console.log(res[i])
+//         months = res[i].months
+//         sales = res[i].sales
+//         orders = res[i].orders
+//         var text = `months: ${months}, sales: ${sales},orders: ${orders}`
+//         var h = document.createElement("H1"); // Create the H1 element 
+//         var t = document.createTextNode(text); // Create a text element 
+//         h.appendChild(t); // Append the text node to the H1 element 
+//         document.body.appendChild(h);
+//     }
+
+    
+    
+</script>
+</html>

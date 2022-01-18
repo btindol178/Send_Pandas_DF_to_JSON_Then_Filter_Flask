@@ -1,0 +1,2 @@
+This is to show how to send dataframe data to JSON format then filter the json in JS.
+This could be useful for filtering d3.js on the front end with event listener being fed by data from another url that has full dataframe.
